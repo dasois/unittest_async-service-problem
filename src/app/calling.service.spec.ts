@@ -22,7 +22,7 @@ describe('CallingService', () => {
                 expect(res).toBe("mocked.passThrough");
                 done();
             });
-        });
+        })();   // <-- these braces are vital!!
     });
 
 
