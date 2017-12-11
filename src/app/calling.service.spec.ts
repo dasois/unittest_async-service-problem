@@ -15,7 +15,7 @@ describe('CallingService', () => {
     }));
 
 
-    it('should return mocked value async - DOES NOT WORK', done => {
+    it('should return mocked value async', done => {
         inject([CallingService], (service: CallingService) => {
             spyOn(TestBed.get(CalledService), "calledMethod").and.callFake(() => Promise.resolve("mocked"));
             service.callingMethod().then((res) => {
