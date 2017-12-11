@@ -33,4 +33,13 @@ describe('CallingService', () => {
             });
         })
     );
+
+    it('should return mocked value async without inject - WORKS', done => {
+        const service = TestBed.get(CallingService);
+        spyOn(TestBed.get(CalledService), "calledMethod").and.callFake(() => Promise.resolve("mocked"));
+        service.callingMethod().then((res) => {
+            expect(res).toBe("mocked.passThrough");
+            done();
+        });
+    });
 });
