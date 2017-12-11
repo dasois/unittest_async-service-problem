@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {CalledService} from "./called.service";
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+
+    constructor(private calledService: CalledService) {
+    }
+
+    callingMethod() {
+        return this.calledService.calledMethod().then(res => {
+            return res + ".passThroughCmp";
+        });
+    }
 }
